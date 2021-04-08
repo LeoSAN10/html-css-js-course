@@ -55,28 +55,10 @@ let summerStr = 'Лето удалось очень жарким, было мн�
 let dotStr = summerStr.replace(/,/g, '.');
 console.log(dotStr);
 
-let aaa = '';
-let bbb = '';
-let j = -1;
-let o = 0
-while ((j = summerStr.indexOf(',', j+2)) != -1) {
-    aaa = summerStr.substr(0, j+2) + summerStr[j+2].toUpperCase() + summerStr.substr(j+3);
-    
-}
-while ((o = summerStr.indexOf(',', o+2)) != -1) {
-    bbb = summerStr.substr(0, o+2) + summerStr[o+2].toUpperCase() + summerStr.substr(o+3);
-    
-}
-console.log(aaa);
-console.log(bbb);
-console.log(console.log(summerStr.lastIndexOf(',')));
 
-console.log(summerStr.replace(/-\w/g, $0 => $0.toUpperCase()));
-let upperLetterStr = summerStr.split(",").map(function(x){ return x.toUpperCase()}).join('');
-
-
-console.log(upperLetterStr);
-
+console.log(summerStr.replace(/(^|\,\s+)(.)/g, function(a, b, c){
+    return b + c.toUpperCase();
+  }));
 
 
 
@@ -90,6 +72,9 @@ for (let i = 0; i < namesStr.length; i++) {
 }
 let newNamesStr = `На день рождения пришли: ${namesArr[0]} ${namesArr[1]}, ${namesArr[2]}, ${namesArr[3]}.`;
 console.log(newNamesStr);
+
+
+
 
 
 
